@@ -1,0 +1,46 @@
+﻿<Window x:Class="VectorGraphicRedactor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:VectorGraphicRedactor"
+        mc:Ignorable="d"
+        Closing="MainWindow_OnClosing"
+        Title="SimplePaint" MinHeight="700" MinWidth="1000">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.05*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.05*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.Row="0" Grid.ColumnSpan="2">
+            <MenuItem Header="File">
+                <Button x:Name="Save" Content="Save File" Click="SaveButton_Click"/>
+                <Button x:Name="Open" Content="Open File" Click="OpenButton_Click"/>
+                <Button x:Name="Exit" Content="Exit" Click="ExitButton_Click"/>
+            </MenuItem>
+            <MenuItem Header="Info" Click="InfoButton_Click"></MenuItem>
+        </Menu>
+        <ScrollViewer x:Name="Picture" Grid.Column="1" Grid.Row="1" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible"
+                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MouseMove="Picture_MouseMove" 
+                      MouseLeftButtonUp="Picture_MouseLeftButtonUp"
+                      MouseRightButtonUp="Picture_MouseRightButtonUp" Loaded="Picture_OnLoaded">
+            <local:DrawingObject x:Name="DrawingObject"></local:DrawingObject>
+        </ScrollViewer>
+        
+        <Grid Grid.Column="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.4*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <WrapPanel x:Name="ToolPanel" Orientation="Horizontal" Grid.Row="0" Background="LightCyan"/>
+            <WrapPanel x:Name="ConfigPanel" Orientation="Vertical" Grid.Row="1" Grid.ColumnSpan="4" Background="LightGoldenrodYellow"/>
+        </Grid>
+    </Grid>
+</Window>

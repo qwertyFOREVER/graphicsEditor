@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Extended.Wpf.Toolkit" Version="3.8.1" />
+      <PackageReference Include="System.Drawing.Common" Version="5.0.0-preview.1.20120.5" />
+      <PackageReference Include="WriteableBitmapEx" Version="1.6.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="sfsd.cs" />
+      <Compile Remove="Figure\Pencil.cs" />
+      <Compile Remove="Configurator\AngleConfig.cs" />
+      <Compile Remove="ToolPicker.cs" />
+      <Compile Remove="Configurator\DashCapConfig.cs" />
+      <Compile Remove="Configurator\HatchCapConfig.cs" />
+      <Compile Remove="ToolPicker\Tools.cs" />
+      <Compile Remove="ToolPicker\**" />
+      <Compile Remove="Brushes\TileBrushTool.cs" />
+      <Compile Remove="Animation\AnimatorPicker.cs" />
+      <Compile Remove="Animation\AnimationTools.cs" />
+      <Compile Remove="Animation\Animation.cs" />
+      <Compile Remove="Animation\AnimatePicker.cs" />
+      <Compile Remove="Animation\AnimationTools\**" />
+      <Compile Remove="Configurator\AnimationConfig.cs" />
+      <Compile Remove="Animation\NikitationAnimation.cs" />
+      <Compile Remove="Animation\ColorChangeAnimation.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="ToolPicker\**" />
+      <EmbeddedResource Remove="Animation\AnimationTools\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="ToolPicker\**" />
+      <None Remove="Animation\AnimationTools\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Page Remove="ToolPicker\**" />
+      <Page Remove="Animation\AnimationTools\**" />
+    </ItemGroup>
+
+</Project>
